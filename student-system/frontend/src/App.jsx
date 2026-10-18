@@ -10,14 +10,17 @@ function Landing({ onEnter }) {
     <div className="landing">
       <div className="landing-glow" aria-hidden="true" />
       <div className="landing-content">
-        <h1>Student Records</h1>
+        <div className="landing-index"><span>SSR / 01</span><span>Registrar’s archive</span></div>
+        <p className="landing-kicker">Every name leaves a mark.</p>
+        <h1>Student<br /><em>Records</em></h1>
         <p>
-          A small register for keeping ID numbers, year levels, and programs in one
-          place, backed by SQL Server on this machine.
+          A considered archive of student identities, programs, and years of study.
+          Search the record. Add to the collection.
         </p>
-        <button className="btn btn-primary btn-large" onClick={onEnter}>
-          Open the system
-        </button>
+        <div className="landing-action">
+          <button className="btn btn-primary btn-large" onClick={onEnter}>Enter the archive <span aria-hidden="true">↗</span></button>
+          <span className="landing-note">LOCAL DATABASE&nbsp; · &nbsp;SQL SERVER</span>
+        </div>
       </div>
     </div>
   )
@@ -232,19 +235,22 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <header className="dashboard-header">
-        <span className="wordmark">Student Records</span>
-        <nav className="view-tabs">
+        <div className="header-identity">
+          <span className="wordmark">Student Records</span>
+          <span className="header-caption">REGISTRAR’S ARCHIVE <i>•</i> LOCAL SYSTEM</span>
+        </div>
+        <nav className="view-tabs" aria-label="Archive sections">
           <button
             className={`btn btn-ghost${view === 'students' ? ' active' : ''}`}
             onClick={() => setView('students')}
           >
-            Students
+            <span className="tab-index">01</span> Students
           </button>
           <button
             className={`btn btn-ghost${view === 'databases' ? ' active' : ''}`}
             onClick={() => setView('databases')}
           >
-            Manage databases
+            <span className="tab-index">02</span> Manage databases
           </button>
         </nav>
       </header>
